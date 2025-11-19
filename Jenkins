@@ -1,20 +1,11 @@
 pipeline {
-    agent { docker { image 'maven:3.9.11-eclipse-temurin-21-alpine' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'mvn --version'
-            }
-        }
-    }
-}
-pipeline {
     agent any
 
     stages {
+
         stage('Build') {
             steps {
-                echo "Building project..."
+                echo "Building the application..."
             }
         }
 
@@ -26,9 +17,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo "Deploying..."
+                echo "Deploying application..."
             }
         }
+
     }
 }
-
